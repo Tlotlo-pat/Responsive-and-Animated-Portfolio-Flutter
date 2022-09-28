@@ -17,7 +17,7 @@ class HomeBanner extends StatelessWidget {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            "assets/images/bg.jpeg",
+            "assets/images/bg.jpg",
             fit: BoxFit.cover,
           ),
           Container(color: darkColor.withOpacity(0.66)),
@@ -28,7 +28,8 @@ class HomeBanner extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  "Discover my Amazing \nArt Space!",
+                  "The epitome of app \ndevelopment!"
+                 ,
                   style: Responsive.isDesktop(context)
                       ? Theme.of(context).textTheme.headline3!.copyWith(
                             fontWeight: FontWeight.bold,
@@ -109,11 +110,11 @@ class AnimatedText extends StatelessWidget {
           speed: Duration(milliseconds: 60),
         ),
         TyperAnimatedText(
-          "complete e-Commerce app UI.",
+          "IoT applications with flutter",
           speed: Duration(milliseconds: 60),
         ),
         TyperAnimatedText(
-          "Chat app with dark and light theme.",
+          "backend with firebase and aws",
           speed: Duration(milliseconds: 60),
         ),
       ],

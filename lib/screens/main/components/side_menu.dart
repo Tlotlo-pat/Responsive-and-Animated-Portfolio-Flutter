@@ -1,7 +1,11 @@
+import 'dart:html';
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_profile/constants.dart';
 import 'package:flutter_svg/svg.dart';
-
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'area_info_text.dart';
 import 'coding.dart';
 import 'knowledges.dart';
@@ -27,15 +31,15 @@ class SideMenu extends StatelessWidget {
                   children: [
                     AreaInfoText(
                       title: "Residence",
-                      text: "Bangladesg",
+                      text: "Botswana",
                     ),
                     AreaInfoText(
                       title: "City",
-                      text: "Dhaka",
+                      text: "Gaborone",
                     ),
                     AreaInfoText(
                       title: "Age",
-                      text: "22",
+                      text: "25",
                     ),
                     Skills(),
                     SizedBox(height: defaultPadding),
@@ -44,7 +48,9 @@ class SideMenu extends StatelessWidget {
                     Divider(),
                     SizedBox(height: defaultPadding / 2),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                         
+                      },
                       child: FittedBox(
                         child: Row(
                           children: [
@@ -69,9 +75,18 @@ class SideMenu extends StatelessWidget {
                       child: Row(
                         children: [
                           Spacer(),
-                          IconButton(
-                            onPressed: () {},
-                            icon: SvgPicture.asset("assets/icons/linkedin.svg"),
+                          InkWell(
+                            onTap: () {
+                              launchUrlString("https://www.linkedin.com/in/tlotlopkgotlafela/");
+                            },
+                            child: IconButton(
+                              onPressed: () {
+                            
+                              
+                                
+                              },
+                              icon: SvgPicture.asset("assets/icons/linkedin.svg"),
+                            ),
                           ),
                           IconButton(
                             onPressed: () {},
@@ -94,4 +109,5 @@ class SideMenu extends StatelessWidget {
       ),
     );
   }
+ 
 }

@@ -14,12 +14,23 @@ class RecommendationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: secondaryColor,
+        borderRadius: BorderRadius.circular(15),
+      ),
       width: 400,
+      height: 310,
       padding: EdgeInsets.all(defaultPadding),
-      color: secondaryColor,
+     
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          //image
+          Image.asset(
+            recommendation.image!,
+            height: 100,
+            
+          ),
           Text(
             recommendation.name!,
             style: Theme.of(context).textTheme.subtitle2,

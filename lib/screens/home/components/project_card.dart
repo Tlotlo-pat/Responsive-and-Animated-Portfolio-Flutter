@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile/models/Project.dart';
 import 'package:flutter_profile/responsive.dart';
-
+import 'package:glassmorphism/glassmorphism.dart';
+import 'package:hexcolor/hexcolor.dart';
 import '../../../constants.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -15,8 +16,12 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+        color: secondaryColor,
+        borderRadius: BorderRadius.circular(15),
+      ),
       padding: const EdgeInsets.all(defaultPadding),
-      color: secondaryColor,
+      
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -35,7 +40,9 @@ class ProjectCard extends StatelessWidget {
           ),
           Spacer(),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              _showDialog(project, context);
+            },
             child: Text(
               "Read More >>",
               style: TextStyle(color: primaryColor),
@@ -45,4 +52,47 @@ class ProjectCard extends StatelessWidget {
       ),
     );
   }
+
+  //* build pop up dialog
+  void _showDialog(Project project, BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return Padding(
+          padding: const EdgeInsets.only(left: 360.0, right: 360.0),
+          child: AlertDialog(
+            
+            backgroundColor: secondaryColor,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15),
+            ),
+            title: Image.asset(
+              project.image!,
+              height: 200,
+            ),
+            content: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text(project.title!),
+                SizedBox(height: 10),
+                Text(project.description!),
+                
+
+              ],
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+                child: Text("Close"),
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+  
+
 }
